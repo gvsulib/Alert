@@ -1,16 +1,14 @@
 // Set this to false if you don't want the alert to show. Set it to true to have it show up.
 
-var alertShow = false;
+var alertShow = true;
 
 // Define the Text for your alert here. No HTML needed - that is taken care of below.
 
-var alertText = '<strong>Alert text goes here.</strong> You can use HTML tags within, but this is wrapped in a paragraph element.';
+var alertText = '<strong>Some library online systems will be undergoing maintenance Sunday, March 22, from 9:00 am until noon.</strong> Expect some system downtime.';
 
 if(alertShow == true) {
 
-	// This is designed to show up in a specific spot on the GVSU Library template. 
-	// If your website is different, you need to change where this places the text.
-	jQuery('#cms-content').prepend('<div class="alert alert-warning"><p>' + alertText + '</p></div>');
+	jQuery('#cms-content').prepend('<div class="alert alert-danger"><p>' + alertText + '</p></div>');
 	console.log('Adding a global alert');
 
 }
