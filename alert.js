@@ -1,6 +1,6 @@
 // Set this to false if you don't want the alert to show. Set it to true to have it show up.
 
-var alertShow = true;
+var alertShow = false;
 
 // Define the Text for your alert here. No HTML needed - that is taken care of below.
 
