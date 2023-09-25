@@ -37,7 +37,7 @@ def alert():
   if alertStatus != "true" and alertStatus != "false":
     return Response("invalid value for 'alert', acceptable values are 'true' or false'.", status=400, mimetype='application/text')
   formatted = text.format(show=alertStatus, message=msg)
-  javascriptFile = open("alert.js", "w")
+  javascriptFile = open("/var/www/html/labs/alert/alert.js", "w")
   javascriptFile.write(formatted)
   javascriptFile.close()
   returnMsg = "Alert status updated:  show alert is '{show}' and message is '{message}'.".format(show=content["alert"], message=content["msg"])
