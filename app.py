@@ -24,7 +24,7 @@ if(alertShow == true) {{
 }}
 """
 
-@app.route("/alert", methods=['POST'])
+@app.route("/refresh", methods=['POST'])
 def alert():
   content = request.get_json(force=True)
   try:
