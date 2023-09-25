@@ -1,10 +1,11 @@
+
 // Set this to false if you don't want the alert to show. Set it to true to have it show up.
 
-var alertShow = false;
+var alertShow = true;
 
 // Define the Text for your alert here. No HTML needed - that is taken care of below.
 
-var alertText = '<strong>Alert text goes here.</strong> You can use HTML tags within, but this is wrapped in a paragraph element.';
+var alertText = 'test message';
 
 if(alertShow == true) {
 
