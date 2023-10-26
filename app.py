@@ -1,5 +1,5 @@
 
-from flask import Flask, render_template, request, Response
+from flask import Flask, render_template, request, Response, make_response
 from flask_bootstrap import Bootstrap
 
 app = Flask(__name__)
@@ -26,6 +26,12 @@ if(alertShow == true) {{
 
 @app.route("/refresh", methods=['POST'])
 def alert():
+  if request.method == "OPTIONS": # CORS preflight
+    response = make_response()
+    response.headers.add("Access-Control-Allow-Origin", "*")
+    response.headers.add('Access-Control-Allow-Headers', "*")
+    response.headers.add('Access-Control-Allow-Methods', "*")
+    return response
   content = request.get_json(force=True)
   try:
     alertStatus = content["alert"]
