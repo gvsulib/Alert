@@ -41,4 +41,6 @@ def alert():
   javascriptFile.write(formatted)
   javascriptFile.close()
   returnMsg = "Alert status updated:  show alert is '{show}' and message is '{message}'.".format(show=content["alert"], message=content["msg"])
-  return Response(returnMsg, status=200, mimetype='application/text')
+  response = Response(returnMsg, status=200, mimetype='application/text')
+  response.headers.add('Access-Control-Allow-Origin', '*')
+  return response
