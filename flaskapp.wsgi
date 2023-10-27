@@ -2,6 +2,6 @@
 import sys
 import logging
 logging.basicConfig(stream=sys.stderr)
-sys.path.insert(0,"/var/www/Alert")
+sys.path.insert(0,"/var/www/alert")
 
 from app import app as application

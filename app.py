@@ -1,9 +1,8 @@
 
 from flask import Flask, render_template, request, Response, make_response
-from flask_bootstrap import Bootstrap
-
+from flask_cors import CORS
 app = Flask(__name__)
-Bootstrap(app) 
+CORS(app) 
 
 text="""
 // Set this to false if you don't want the alert to show. Set it to true to have it show up.
@@ -24,14 +23,8 @@ if(alertShow == true) {{
 }}
 """
 
-@app.route("/refresh", methods=['POST'])
+@app.route("/refresh", methods=['POST','OPTIONS'])
 def alert():
-  if request.method == "OPTIONS": # CORS preflight
-    response = make_response()
-    response.headers.add("Access-Control-Allow-Origin", "*")
-    response.headers.add('Access-Control-Allow-Headers', "*")
-    response.headers.add('Access-Control-Allow-Methods', "*")
-    return response
   content = request.get_json(force=True)
   try:
     alertStatus = content["alert"]
@@ -47,6 +40,4 @@ def alert():
   javascriptFile.write(formatted)
   javascriptFile.close()
   returnMsg = "Alert status updated:  show alert is '{show}' and message is '{message}'.".format(show=content["alert"], message=content["msg"])
-  response = Response(returnMsg, status=200, mimetype='application/text')
-  response.headers.add('Access-Control-Allow-Origin', '*')
-  return response
+  return Response(returnMsg, status=200, mimetype='application/text')
