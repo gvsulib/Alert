@@ -1,17 +1,18 @@
 
 from flask import Flask, render_template, request, Response, make_response
 from flask_cors import CORS
+
 app = Flask(__name__)
 CORS(app, resources={r"/refresh/*": {"origins": ["https://www.gvsu.edu"]}}) 
 
 text="""
 // Set this to false if you don't want the alert to show. Set it to true to have it show up.
 
-var alertShow = {show};
+let alertShow = {show};
 
 // Define the Text for your alert here. No HTML needed - that is taken care of below.
 
-var alertText = '{message}';
+let alertText = '{message}';
 
 if(alertShow == true) {{
 
@@ -32,6 +33,7 @@ def alert():
   except KeyError:
     return Response("One or more json values are missing", status=400, mimetype='application/text')
   print(alertStatus)
+  msg = msg.replace("\n", "")
   print(msg)
   if alertStatus != "true" and alertStatus != "false":
     return Response("invalid value for 'alert', acceptable values are 'true' or false'.", status=400, mimetype='application/text')
