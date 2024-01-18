@@ -34,6 +34,7 @@ def alert():
     return Response("One or more json values are missing", status=400, mimetype='application/text')
   print(alertStatus)
   msg = msg.replace("\n", "")
+  msg = msg.replace("-", "&#8209")
   print(msg)
   if alertStatus != "true" and alertStatus != "false":
     return Response("invalid value for 'alert', acceptable values are 'true' or false'.", status=400, mimetype='application/text')
