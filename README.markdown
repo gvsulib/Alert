@@ -14,7 +14,7 @@ The javascript it outputs has to be placed in the "alert" folder inside our "lab
 
 # Access
 
-Usign this app requires the URL to the POST endpoint on the server.  You can get this from the maintainer or our Head of Systems and Discovery
+Setting/changing the alert message requires the URL to the POST endpoint on the server.  You can get this from the maintainer or our Head of Systems and Discovery
 
 # usage
 
