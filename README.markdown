@@ -12,6 +12,10 @@ This is a flask app and has the standard flask directory structure (https://flas
 
 The javascript it outputs has to be placed in the "alert" folder inside our "labs" folder on the production server.  This is where all our javascript include statements point.  The exact path is in the app file.
 
+# Application Dependencies
+
+This app requires Flask and Python version 3.  Because it involves cross-origin resource sharing, it uses the flask CORS library (flask-cors) (https://pypi.org/project/flask-cors/).
+
 # Access
 
 Setting/changing the alert message requires the URL to the POST endpoint on the server.  You can get this from the maintainer or our Head of Systems and Discovery
